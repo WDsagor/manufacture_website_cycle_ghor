@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 
-const Header = () => {
+const Header = ({ children }) => {
   const menuItems = (
     <>
       <li>
@@ -11,13 +11,8 @@ const Header = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/contact" className=" rounded-lg">
-          Contact
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/about" className=" rounded-lg">
-          About
+        <NavLink to="/blog" className=" rounded-lg">
+          Blogs
         </NavLink>
       </li>
       <li>
@@ -31,7 +26,7 @@ const Header = () => {
     <div className="drawer drawer-end">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
-        <div className="navbar  fixed top-0 z-50 lg:px-20 ">
+        <div className="w-full navbar  fixed top-0 z-50 lg:px-20 bg-slate-50">
           <Link
             to="/"
             className="flex-1 text-xl lg:text-2xl font-bold uppercase text-primary"
@@ -53,11 +48,12 @@ const Header = () => {
               </svg>
             </label>
           </div>
-
+        
           <div className="flex-none hidden lg:block">
             <ul className="menu menu-horizontal gap-x-2">{menuItems}</ul>
           </div>
         </div>
+        { children }
       </div>
       <div className="drawer-side">
         <label for="my-drawer-3" className="drawer-overlay"></label>
