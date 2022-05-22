@@ -11,6 +11,11 @@ const Header = ({ children }) => {
         </NavLink>
       </li>
       <li>
+        <NavLink to="/dashboard" className=" rounded-lg">
+          Dashboard
+        </NavLink>
+      </li>
+      <li>
         <NavLink to="/blog" className=" rounded-lg">
           Blogs
         </NavLink>

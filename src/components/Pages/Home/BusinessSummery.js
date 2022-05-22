@@ -11,24 +11,24 @@ const BusinessSummery = () => {
       <div className=" w-9/12 mx-auto">
       <div class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center justify-center">
         <div class="stat text-center items-center">
-          <div class="stat-value justify-center text-secondary flex"><FaRegFlag/></div>
+          <div class="stat-value justify-center text-secondary flex text-6xl py-5"><FaRegFlag/></div>
           <div class="stat-value">59+</div>
           <div class="stat-desc uppercase">Uses Country</div>
         </div>
 
         <div class="stat text-center">
-          <div class="stat-value justify-center text-secondary flex"><FaUsers/></div>
+          <div class="stat-value justify-center text-secondary flex text-6xl py-5"><FaUsers/></div>
           <div class="stat-value">200K+</div>
-          <div class="stat-desc uppercase">Users</div>
+          <div class="stat-desc uppercase">happy clints</div>
         </div>
 
         <div class="stat text-center">
-        <div class="stat-value justify-center text-secondary flex"><FaAward/></div>
+        <div class="stat-value justify-center text-secondary flex text-6xl py-5"><FaAward/></div>
           <div class="stat-value">50+</div>
           <div class="stat-desc uppercase">AWWARDS</div>
         </div>
         <div class="stat text-center">
-        <div class="stat-value justify-center text-secondary flex"><FaHandSparkles/></div>
+        <div class="stat-value justify-center text-secondary flex text-6xl py-5"><FaHandSparkles/></div>
           <div class="stat-value">12K+</div>
           <div class="stat-desc uppercase">Feedback</div>
         </div>
