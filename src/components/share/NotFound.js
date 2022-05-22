@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import NotFound from "../../Asset/error-404-message.png"
+import NotFoundimg from "../../Asset/error-404-message.png"
 
-const NotFount = () => {
+const NotFound = () => {
   return (
     <div className="h-screen flex justify-center items-center">
         <div class="card  bg-base-100">
       <figure class="px-10 pt-10">
         <img
-          src={NotFound}
+          src={NotFoundimg}
           alt="NotFound"
           class="rounded-xl"
         />
@@ -24,4 +24,4 @@ const NotFount = () => {
   );
 };
 
-export default NotFount;
+export default NotFound;

@@ -3,7 +3,7 @@ import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 import SignUp from '../Pages/Login/Login';
 import Blog from '../Pages/Blog/Blog';
-import NotFound from '../share/NotFount';
+import NotFound from '../share/NotFound';
 
 export const publicRoute = [
     { path: "/", Component: Home },
