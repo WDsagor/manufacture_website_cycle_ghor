@@ -3,6 +3,7 @@ import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 import SignUp from '../Pages/Login/Login';
 import Blog from '../Pages/Blog/Blog';
+import NotFound from '../share/NotFount';
 
 export const publicRoute = [
     { path: "/", Component: Home },
@@ -10,4 +11,5 @@ export const publicRoute = [
     { path: "/blog",  Component: Blog },
     { path: "/login", Component: Login },
     { path: "/signup", Component: SignUp },
+    { path: "*", Component: NotFound },
   ];
