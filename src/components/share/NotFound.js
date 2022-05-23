@@ -5,18 +5,18 @@ import NotFoundimg from "../../Asset/error-404-message.png"
 const NotFound = () => {
   return (
     <div className="h-screen flex justify-center items-center">
-        <div class="card  bg-base-100">
-      <figure class="px-10 pt-10">
+        <div className="card  bg-base-100">
+      <figure className="px-10 pt-10">
         <img
           src={NotFoundimg}
           alt="NotFound"
-          class="rounded-xl"
+          className="rounded-xl"
         />
       </figure>
-      <div class="card-body items-center text-center">
-        <h2 class="card-title">Page Not Found</h2>
-        <div class="card-actions">
-          <Link to='/' class="btn btn-primary">Goto Home Page</Link>
+      <div className="card-body items-center text-center">
+        <h2 className="card-title">Page Not Found</h2>
+        <div className="card-actions">
+          <Link to='/' className="btn btn-primary">Goto Home Page</Link>
         </div>
       </div>
     </div>

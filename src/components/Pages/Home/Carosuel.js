@@ -23,7 +23,7 @@ const Carosuel = () => {
       centeredSlides={true}
       autoHeight={true}
       autoplay={{
-        delay: 4000,
+        delay: 3000,
         disableOnInteraction: false,
       }}
       pagination={{
@@ -34,7 +34,7 @@ const Carosuel = () => {
     >
       <SwiperSlide>
         <img src={Ringer} alt="" />
-        <div className=" absolute left-8 right-8 bottom-8 text-white md:left-12 md:bottom-12 lg:left-16 lg:right-16  grid grid-cols-2 gap-2 lg:bottom-1/4 items-end grid">
+        <div className=" absolute left-8 right-8 bottom-8 text-white md:left-12 md:bottom-12 lg:left-16 lg:right-16 grid grid-cols-2 gap-2 lg:bottom-1/4 items-end">
           <div>
             <p className="text-2xl lg:text-4xl font-bold"> Handle Ringer</p>
             <p className="py-2 hidden sm:block">
@@ -43,7 +43,7 @@ const Carosuel = () => {
               aluminum, stainless steel, and brass bell.
             </p>
             <p className="text-2xl font-bold py-2"> Price $ 35</p>
-            <button class="btn btn-xs sm:btn-sm md:btn-md  border-none btn-warning">
+            <button className="btn btn-xs sm:btn-sm md:btn-md  border-none btn-warning">
               BUY NOW
             </button>
           </div>
@@ -60,7 +60,7 @@ const Carosuel = () => {
               inch high to offer premium performance.
             </p>
             <p className="text-2xl font-bold py-2"> Price $ 45</p>
-            <button class="btn btn-xs sm:btn-sm md:btn-md  border-none btn-warning">
+            <button className="btn btn-xs sm:btn-sm md:btn-md  border-none btn-warning">
               BUY NOW
             </button>
           </div>
@@ -78,7 +78,7 @@ const Carosuel = () => {
               bottom bracket/crank.
             </p>
             <p className="text-2xl font-bold py-2"> Price $ 165</p>
-            <button class="btn btn-xs sm:btn-sm md:btn-md  border-none btn-warning">
+            <button className="btn btn-xs sm:btn-sm md:btn-md  border-none btn-warning">
               BUY NOW
             </button>
           </div>
@@ -95,7 +95,7 @@ const Carosuel = () => {
               they connect the rear wheel to the bottom bracket/crank.
             </p>
             <p className="text-2xl font-bold py-2"> Price $ 155</p>
-            <button class="btn btn-xs sm:btn-sm md:btn-md  border-none btn-warning">
+            <button className="btn btn-xs sm:btn-sm md:btn-md  border-none btn-warning">
               BUY NOW
             </button>
           </div>
@@ -112,7 +112,7 @@ const Carosuel = () => {
               for anybody who cycles, particularly if an overuse injury has
               occurred, to maximise their enjoyment and performance.
             </p>
-            <button class="btn btn-xs sm:btn-sm md:btn-md  border-none btn-warning">
+            <button className="btn btn-xs sm:btn-sm md:btn-md  border-none btn-warning">
               Read More
             </button>
           </div>
@@ -130,7 +130,7 @@ const Carosuel = () => {
               types of bar ends to provide extra hand positions and functions.
             </p>
             <p className="text-2xl font-bold py-2"> Price $ 115</p>
-            <button class="btn btn-xs sm:btn-sm md:btn-md  border-none btn-warning">
+            <button className="btn btn-xs sm:btn-sm md:btn-md  border-none btn-warning">
               BUY NOW
             </button>
           </div>
@@ -150,7 +150,7 @@ const Carosuel = () => {
               options. Front brake included.
             </p>
             <p className="text-2xl font-bold py-2"> Price $ 599</p>
-            <button class="btn btn-xs btn-warning sm:btn-sm md:btn-md  border-none">
+            <button className="btn btn-xs btn-warning sm:btn-sm md:btn-md  border-none">
               BUY NOW
             </button>
           </div>
@@ -168,7 +168,7 @@ const Carosuel = () => {
               we source our products only from trusted suppliers.
             </p>
             <p className="text-2xl font-bold py-2"> Price $ 35</p>
-            <button class="btn btn-warning btn-xs sm:btn-sm md:btn-md  border-none">
+            <button className="btn btn-warning btn-xs sm:btn-sm md:btn-md  border-none">
               BUY NOW
             </button>
           </div>
