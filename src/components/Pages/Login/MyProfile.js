@@ -1,0 +1,16 @@
+import React from 'react';
+
+const MyProfile = () => {
+    return (
+        <div>
+            <h1>My Profile</h1>
+            <h1>My Profile</h1>
+            <h1>My Profile</h1>
+            <h1>My Profile</h1>
+            <h1>My Profile</h1>
+            <h1>My Profile</h1>
+        </div>
+    );
+};
+
+export default MyProfile;

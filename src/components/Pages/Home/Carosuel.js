@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import 'swiper/css/autoplay';
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper";
 import Ringer from "../../../Asset/ringger.png";
 import Pamper from "../../../Asset/Panper.png";
@@ -14,6 +15,7 @@ import Paddle from "../../../Asset/PaddleBox.png";
 import Workplace from "../../../Asset/workplace.png";
 
 const Carosuel = () => {
+  
   return (
     <Swiper
       className="max-w-screen-2xl"

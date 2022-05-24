@@ -23,11 +23,6 @@ const Login = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    // useEffect( () =>{
-    //     if (token) {
-    //         navigate(from, { replace: true });
-    //     }
-    // }, [token, from, navigate])
     useEffect(()=>{
         if(user || gUser){
             toast.success("Login Success", {
@@ -39,9 +34,6 @@ const Login = () => {
             toast.error(error?.message || gError?.message , {
                  position: toast.POSITION.TOP_CENTER
                });
-         
-             // signInError= 
-             // <p className='text-red-500'><small>{error?.message || gError?.message }</small></p>
          }
     }, [user, gUser, error, gError, navigate]);
    

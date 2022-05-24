@@ -42,14 +42,10 @@ const SignUp = () => {
     return <Loading></Loading>;
   }
 
-  // if (token) {
-  //     navigate('/appointment');
-  // }
 
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
-    console.log("update done");
     reset();
   };
   return (
