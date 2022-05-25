@@ -38,7 +38,7 @@ const Carosuel = () => {
         <img src={Ringer} alt="" />
         <div className=" absolute left-8 right-8 bottom-8 text-white md:left-12 md:bottom-12 lg:left-16 lg:right-16 grid grid-cols-2 gap-2 lg:bottom-1/4 items-end">
           <div>
-            <p className="text-2xl lg:text-4xl font-bold"> Handle Ringer</p>
+            <p className="text-2xl lg:text-4xl font-bold">Handle Ringer</p>
             <p className="py-2 hidden sm:block">
               Last month we reported on Spurcycle's innovative Griprings, now
               they're kickstarting again with the Ringer, a high quality
@@ -127,7 +127,7 @@ const Carosuel = () => {
           <div>
             <p className="text-2xl lg:text-4xl font-bold">Handlebars</p>
             <p className="py-2 hidden sm:block">
-              ou can easily attach lights, brake levers, phone holders and other
+              You can easily attach lights, brake levers, phone holders and other
               auxiliary biking equipment. It's also easier to fit different
               types of bar ends to provide extra hand positions and functions.
             </p>

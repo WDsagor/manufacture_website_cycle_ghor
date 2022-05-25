@@ -14,6 +14,7 @@ import Myorder from './components/Pages/DasshBoard/Myorder';
 import Purchase from "./components/Pages/DasshBoard/Purchase";
 import ManageProducts from "./components/Pages/DasshBoard/ManageProducts";
 import ManageOrder from "./components/Pages/DasshBoard/ManageOrder";
+import Review from "./components/Pages/DasshBoard/Review";
 
 function App() {
   return (
@@ -26,10 +27,12 @@ function App() {
            publicRoute.map(({path, Component}, index)=><Route key={index} path={path} element={<Component/>}></Route>)
          }
         {/* Private Route */}
-        <Route path="profile" element={<RequireAuth><MyProfile /></RequireAuth>}></Route >
+        <Route path="/profile" element={<RequireAuth><MyProfile /></RequireAuth>}></Route >
+          <Route path='/products/:id' element={<RequireAuth><Purchase></Purchase></RequireAuth>} />
         <Route path='/dashboard' element={<RequireAuth><DasshBoard /></RequireAuth>}>
+          <Route path='my-review' element={<Review></Review>} />
           <Route path="myOrder" element={<Myorder />} />
-          <Route path='purchase' element={<Purchase></Purchase>} />
+          {/* admin route */}
           <Route path='add-item' element={<RequireAdmin><AddItem /></RequireAdmin>} />
           <Route path='all-user' element={<RequireAdmin><AllUser /></RequireAdmin>} />
           <Route path='Manage-Products' element={<RequireAdmin><ManageProducts /></RequireAdmin>} />

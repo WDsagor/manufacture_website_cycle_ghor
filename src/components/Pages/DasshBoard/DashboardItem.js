@@ -3,19 +3,22 @@ import { NavLink } from "react-router-dom";
 import useAdmin from "../../hook/useAdmin";
 
 const DashboardItem = ({children}) => {
-  const [admin, setAdmin] = useAdmin()
+  const [admin] = useAdmin()
   return (
-    <div class="drawer drawer-mobile mt-16">
-      <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content flex flex-col items-center justify-center">
+    <div className="drawer drawer-mobile mt-16">
+      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content flex flex-col items-center justify-center">
         {/* <!-- Page content here --> */}
         {children}
       </div>
-      <div class="drawer-side z-10 ">
-        <label htmlFor="my-drawer-2" class="drawer-overlay"></label>
-        <ul class="menu p-4 overflow-y-auto w-52 bg-success text-base-content fixed h-screen uppercase">
+      <div className="drawer-side z-10 ">
+        <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+        <ul className="menu p-4 overflow-y-auto w-52 bg-success text-base-content fixed h-screen uppercase">
           <li>
-            <NavLink className="mt-2" to="myOrder">My Order</NavLink>
+            <NavLink className="mt-2" to="/dashboard/myOrder">My Order</NavLink>
+          </li>
+          <li>
+            <NavLink className="mt-2" to="/dashboard/my-review">Review</NavLink>
           </li>
           {
             admin && (

@@ -1,0 +1,44 @@
+[
+    {   "name":"Handle Ringer",
+        "details":"Last month we reported on Spurcycle's innovative Griprings, now they're kickstarting again with the Ringer, a high quality aluminum, stainless steel, and brass bell.",
+        "price": "35",
+        "orderQuantity":"500",
+        "productImg":"https://i.ibb.co/0jWWJHd/P-ringger.png"      
+    },
+    {   "name":"Cycle Pumper",
+        "details":"Wide metal base adds stability for easy pumping and adds long lasting durability. 38mm diameter high volume steel barrel is 21 inch high to offer premium performance.",
+        "price": "45",
+        "orderQuantity":"450",
+        "productImg":"https://i.ibb.co/pfXMLNw/P-Panper.png"         
+    },
+    {   "name":"Back Wheel",
+        "details":"Seat Stays: The seat stays are part of the bicycle frame. They connect the rear wheel to the seat tube. Chain Stays: These are  also part of the frame and they connect the rear wheel to the bottom bracket/crank.",
+        "price": "165",
+        "orderQuantity":"300",
+        "productImg":"https://i.ibb.co/Y2s0Qmr/P-Full-Back-Part.png"        
+    },
+    {   "name":"Front Wheel",
+        "details":"The seat stays are part of the bicycle frame. They connect the        rear wheel to the seat tube.These are also part of the frame and        they connect the rear wheel to the bottom bracket/crank.",
+        "price": "155",
+        "orderQuantity":"300",
+        "productImg":"https://i.ibb.co/tJ0Bhf4/P-Full-font-Part.png"        
+    },
+    {   "name":"Handle Bars",
+        "details":"You can easily attach lights, brake levers, phone holders and other        auxiliary biking equipment. It's also easier to fit different        types of bar ends to provide extra hand positions and functions.",
+        "price": "115",
+        "orderQuantity":"300",
+        "productImg":"https://i.ibb.co/xzNVzfC/P-Handale.png"        
+    },
+    {   "name":"Full New Cycle",
+        "details":"Ignite your instincts with our all-new aggressive track design        made of 6061 aluminum. The smooth welding, hand polished frame        with tapered headtube and threadless tapered forks allows you to        take on the streets, track and whatever life throws at you in        style. Flip Flops hubs for fixed-gear and freewheel riding        options. Front brake included.",
+        "price": "599",
+        "orderQuantity":"50",
+        "productImg":"https://i.ibb.co/jhVH05c/New-cycle.png"        
+    },
+    {   "name":"Pedal Gear",
+        "details":" Authenticity is the foundation of our business, and every item we        sell is inspected by our expert team. Our authenticators are the        most experienced and highly trained in the business. In addition,        we source our products only from trusted suppliers.",
+        "price": "35",
+        "orderQuantity":"300",
+        "productImg":"https://i.ibb.co/51v5Q4s/P-Paddle-Box.png"        
+    }
+]
