@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import axios from "axios";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -9,9 +9,9 @@ import { toast } from "react-toastify";
 
 const Purchase = () => {
   const [updateProduct, setUpdateProduct] = useState({});
-  const {name, productImg, details, orderQuantity } = updateProduct;
+  const {name, productImg, details, orderQuantity, price} = updateProduct;
   const { id } = useParams();
-
+const naviget = useNavigate()
   const {
     register,
     formState: { errors },
@@ -36,7 +36,8 @@ const Purchase = () => {
         phone:data.phoneNumber,
         quantity: data.quantity,
         email: user?.email,
-        img: productImg
+        img: productImg,
+        price:price
 
     };
   try {
@@ -53,6 +54,8 @@ const Purchase = () => {
         position: toast.POSITION.TOP_CENTER
       });
       reset();
+      naviget("/")
+
     } catch (error) {
       toast.error(error.message, {
         position: toast.POSITION.TOP_CENTER
@@ -75,6 +78,7 @@ const Purchase = () => {
                 <div className="form-control w-full max-w-xs">
                   <span className="label-text text-xl">Item Name <span className=" text-secondary font-bold">{name}</span></span>
                   <span className="label-text">{details}</span>
+                  <span className="label-text text-xl">Price $ {price}</span>
                 </div>
 
                 <div className="form-control w-full max-w-xs">

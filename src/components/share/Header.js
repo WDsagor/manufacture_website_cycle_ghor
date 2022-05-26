@@ -10,6 +10,8 @@ const Header = ({ children }) => {
   const [ show , setShow] = useState(false);
   const [user] = useAuthState(auth);
   const { pathname } = useLocation();
+  const index = 0;
+  
   const logout = () => {
     signOut(auth);
   };
@@ -33,8 +35,8 @@ const Header = ({ children }) => {
       {user ? (
         <div className="dropdown dropdown-end">
         <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
-          <div onClick={()=>setShow(!show)} className="w-10 rounded-full">
-            <img src="https://api.lorem.space/image/face?hash=33791" alt=""/>
+          <div onClick={()=>setShow(!show)} className="w-10 rounded-full bg-black">
+          <div className=" text-center text-3xl text-white uppercase">{user.displayName.charAt(index)}</div>
           </div>
         </label>
         <ul tabIndex="0" className={show? "menu menu-compact dropdown-content mt-3 p-2 shadow-lg bg-base-100 rounded-box w-52 flex" : "hidden" }>

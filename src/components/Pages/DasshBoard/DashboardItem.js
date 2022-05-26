@@ -7,7 +7,7 @@ const DashboardItem = ({children}) => {
   return (
     <div className="drawer drawer-mobile mt-16">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="drawer-content flex flex-col lg:ml-48 p-10">
         {/* <!-- Page content here --> */}
         {children}
       </div>
