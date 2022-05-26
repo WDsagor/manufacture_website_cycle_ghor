@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
+import useToken from "../../hook/useToken";
 import Loading from "../../share/Loading";
 
 const SignUp = () => {
@@ -22,10 +23,10 @@ const SignUp = () => {
     useCreateUserWithEmailAndPassword(auth);
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-
+  const [token] = useToken(user || gUser)
   const navigate = useNavigate();
   useEffect(() => {
-    if (user || gUser) {
+    if (token) {
       toast.success("Sign up success", {
         position: toast.POSITION.TOP_CENTER,
       });
@@ -36,7 +37,7 @@ const SignUp = () => {
         position: toast.POSITION.TOP_CENTER,
       });
     }
-  }, [navigate, user, gUser, error]);
+  }, [navigate, token]);
 
   if (loading || gLoading || updating) {
     return <Loading></Loading>;

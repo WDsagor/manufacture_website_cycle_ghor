@@ -1,18 +1,42 @@
+import axios from 'axios';
 import React from 'react';
+import { toast } from 'react-toastify';
 
-const DeletModal = () => {
-    return (
-        <>
-        <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-        <div class="modal">
-          <div class="modal-box relative">
-            <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <h3 class="text-lg font-bold">Congratulations random Interner user!</h3>
-            <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+const DeletModal = ({deleteOrder}) => {
+  const deleteItem = id =>{
+
+    if(id){
+      (async () => {
+        const { data } = await axios.delete(`http://localhost:5000/orders/${id}`);
+        
+        if(!data.success) return toast.error(data.error, {
+          position: toast.POSITION.TOP_CENTER
+        })
+    
+        toast.success(data.message, {
+          position: toast.POSITION.TOP_CENTER
+        })
+        
+      })()
+    }
+  } 
+
+    return (     
+      
+      <div>
+        <input type="checkbox" id="delete-modal" class="modal-toggle" />
+      <div class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+        <label for="delete-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+          <h3 class="font-bold text-lg">You want to delete <span className=' text-primary'>{deleteOrder.itemName} ?</span></h3>
+          <p class="py-4">If you want to delete click to comfirm or you can't delete click on cross ..</p>
+          <div class="modal-action">
+            <label for="delete-modal" class="btn btn-sm btn-error text-white" onClick={()=> deleteItem(deleteOrder._id)}> Confirm </label>
           </div>
         </div>
-        </>
-    );
+      </div>
+      </div>
+      );
 };
 
 export default DeletModal;

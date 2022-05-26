@@ -67,7 +67,7 @@ const naviget = useNavigate()
   return (
     <div class="hero min-h-screen bg-base-200">
       <div class="hero-content flex-col lg:flex-row ">
-        <img src={productImg} class="max-w-sm rounded-lg shadow-2xl" alt="" />
+        <img src={productImg} class="max-w-md rounded-lg shadow-2xl mt-14" alt="" />
         <div className="flex h-screen justify-center items-center">
           <div className="card w-96 ">
             <div className="card-body">
@@ -76,7 +76,7 @@ const naviget = useNavigate()
               </h2>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full max-w-xs">
-                  <span className="label-text text-xl">Item Name <span className=" text-secondary font-bold">{name}</span></span>
+                  <span className="label-text text-xl uppercase">Product name <span className=" text-secondary font-bold">{name}</span></span>
                   <span className="label-text">{details}</span>
                   <span className="label-text text-xl">Price $ {price}</span>
                 </div>

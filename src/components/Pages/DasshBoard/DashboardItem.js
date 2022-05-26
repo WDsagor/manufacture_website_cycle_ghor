@@ -15,7 +15,7 @@ const DashboardItem = ({children}) => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 overflow-y-auto w-52 bg-success text-base-content fixed h-screen uppercase">
           <li>
-            <NavLink className="mt-2" to="/dashboard/myOrder">My Order</NavLink>
+            <NavLink className="mt-2" to="/dashboard/">My Order</NavLink>
           </li>
           <li>
             <NavLink className="mt-2" to="/dashboard/my-review">Review</NavLink>

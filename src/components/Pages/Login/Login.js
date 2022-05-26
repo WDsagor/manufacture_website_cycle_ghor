@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../share/Loading';
 import auth from '../../../firebase.init';
 import { toast } from 'react-toastify';
+import useToken from '../../hook/useToken';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -15,16 +16,13 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-
-    // const [token] = useToken(user || gUser);
-
-    
+    const [token] = useToken(user || gUser);
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
     useEffect(()=>{
-        if(user || gUser){
+        if(token){
             toast.success("Login Success", {
                 position: toast.POSITION.TOP_CENTER
               });
@@ -35,7 +33,7 @@ const Login = () => {
                  position: toast.POSITION.TOP_CENTER
                });
          }
-    }, [user, gUser, error, gError, navigate]);
+    }, [token, from,  navigate]);
    
 
     if (loading || gLoading) {

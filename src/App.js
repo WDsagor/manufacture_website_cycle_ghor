@@ -31,7 +31,7 @@ function App() {
           <Route path='/products/:id' element={<RequireAuth><Purchase></Purchase></RequireAuth>} />
         <Route path='/dashboard' element={<RequireAuth><DasshBoard /></RequireAuth>}>
           <Route path='my-review' element={<Review></Review>} />
-          <Route path="myOrder" element={<Myorder/>} />
+          <Route index element={<Myorder/>} />
           {/* admin route */}
           <Route path='add-item' element={<RequireAdmin><AddItem /></RequireAdmin>} />
           <Route path='all-user' element={<RequireAdmin><AllUser /></RequireAdmin>} />
