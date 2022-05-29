@@ -1,9 +1,13 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
+import auth from "../../../firebase.init";
 import useAdmin from "../../hook/useAdmin";
 
-const DashboardItem = ({children}) => {
-  const [admin] = useAdmin()
+const DashboardItem = ({ children }) => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+  console.log(admin);
   return (
     <div className="drawer drawer-mobile mt-16">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -15,26 +19,34 @@ const DashboardItem = ({children}) => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 overflow-y-auto w-52 bg-success text-base-content fixed h-screen uppercase">
           <li>
-            <NavLink className="mt-2" to="/dashboard/">My Order</NavLink>
+            <NavLink className="mt-2" to="/dashboard/">
+              My Order
+            </NavLink>
           </li>
           <li>
-            <NavLink className="mt-2" to="/dashboard/my-review">Review</NavLink>
+            <NavLink className="mt-2" to="/dashboard/my-review">
+              Review
+            </NavLink>
           </li>
-          {
-            admin && (
+          {admin && (
             <>
-            <li>
-            <NavLink className="mt-2" to="/dashboard/add-item">Add Item</NavLink>
-          </li>
-          <li>
-            <NavLink className="mt-2" to="/dashboard/all-user">All User</NavLink>
-          </li>
-          <li>
-            <NavLink className="mt-2" to="/dashboard/manage-order">Manage Order</NavLink>
-          </li>
+              <li>
+                <NavLink className="mt-2" to="/dashboard/add-item">
+                  Add Item
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="mt-2" to="/dashboard/all-user">
+                  All User
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="mt-2" to="/dashboard/manage-order">
+                  Manage Order
+                </NavLink>
+              </li>
             </>
-            )
-          }
+          )}
         </ul>
       </div>
     </div>

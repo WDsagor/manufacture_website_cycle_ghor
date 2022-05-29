@@ -8,6 +8,7 @@ import { signOut } from 'firebase/auth';
 
 const Header = ({ children }) => {
   const [ show , setShow] = useState(false);
+  const [ manushow, setMenuShow ] = useState(false);
   const [user] = useAuthState(auth);
   const { pathname } = useLocation();
   const index = 0;
@@ -63,7 +64,7 @@ const Header = ({ children }) => {
             {pathname.includes("dashboard") && (
             <label
               tabIndex='0'
-              for='my-drawer-2'
+              htmlFor='my-drawer-2'
               className='btn btn-ghost lg:hidden '
             >
               <svg
@@ -96,85 +97,15 @@ const Header = ({ children }) => {
                 </ul>
             </div>
             <div className="dropdown navbar-end dropdown-strat flex lg:hidden lg:float-none">
-                    <label tabIndex="3" className="btn btn-ghost lg:hidden">
+                    <label tabIndex="3" onClick={() => setMenuShow(!manushow)} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex="3" className="menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 relative top-12">
+                    <ul tabIndex="3" className={manushow? "menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 relative top-12" : "hidden" }>
                         {menuItems}
                     </ul>
                 </div>
             
         </div>
-
-
-
-
-
-    // <div className="drawer drawer-end">
-    //   <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
-    //   <div className="drawer-content flex flex-col">
-    //     <div className="w-full navbar  fixed top-0 z-50 lg:px-20 bg-slate-50 shadow-lg">
-    //     {pathname.includes("dashboard") && (
-    //         <label
-    //           tabIndex='0'
-    //           for='my-drawer-2'
-    //           className='btn btn-ghost lg:hidden '
-    //         >
-    //           <svg
-    //             xmlns='http://www.w3.org/2000/svg'
-    //             className='h-5 w-5'
-    //             fill='none'
-    //             viewBox='0 0 24 24'
-    //             stroke='currentColor'
-    //           >
-    //             <path
-    //               strokeLinecap='round'
-    //               strokeLinejoin='round'
-    //               strokeWidth='2'
-    //               d='M4 6h16M4 12h16M4 18h7'
-    //             />
-    //           </svg>
-    //         </label>
-    //       )}
-    //       <Link
-    //         to="/"
-    //         className="flex-1 text-xl lg:text-2xl font-bold uppercase text-primary"
-    //       >
-    //         {" "}
-    //         <FaHome className=" text-success" />{" "}
-    //         <span className="px-2">Cycle</span>{" "}
-    //       </Link>
-    //       <div className="flex-none lg:hidden text-primary">
-    //         <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
-    //           <svg
-    //             xmlns="http://www.w3.org/2000/svg"
-    //             fill="none"
-    //             viewBox="0 0 24 24"
-    //             className="inline-block w-6 h-6 stroke-current"
-    //           >
-    //             <path
-    //               strokeLinecap="round"
-    //               strokeLinejoin="round"
-    //               strokeWidth="2"
-    //               d="M4 6h16M4 12h16M4 18h16"
-    //             ></path>
-    //           </svg>
-    //         </label>
-    //       </div>
-
-    //       <div className="flex-none hidden lg:block">
-    //         <ul className="menu menu-horizontal gap-x-2">{menuItems}</ul>
-    //       </div>
-    //     </div>
-    //     {children}
-    //   </div>
-    //   <div className="drawer-side">
-    //     <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-    //     <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
-    //       {menuItems}
-    //     </ul>
-    //   </div>
-    // </div>
   );
 };
 

@@ -1,21 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import auth from "../../firebase.init";
+import { signOut } from "firebase/auth";
 
 const useOrder = () => {
-   
-    const [orders , setOrders] = useState([])
-    useEffect(()=>{
-        fetch("http://localhost:5000/Orders",{
-            method: 'GET',
-            headers:{
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            }
+  const [orders, setOrders] = useState([]);
 
-        })
-        .then(res => res.json())
-        .then(data => setOrders(data))
-    },[orders]);
-    return [orders , setOrders];
-
+  useEffect(() => {
+    fetch("http://localhost:5000/Orders", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          signOut(auth);
+          localStorage.removeItem("accessToken");
+        }
+        return res.json();
+      })
+      .then((data) => setOrders(data));
+  }, []);
+  return [orders, setOrders];
 };
 
 export default useOrder;

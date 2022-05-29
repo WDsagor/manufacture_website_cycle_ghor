@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import auth from '../../../firebase.init';
-import useOrder from '../../hook/useOreder';
+import Loading from '../../share/Loading'
+
 import DeletModal from './DeletModal';
 import OrderItem from './OrderItem';
 
 const Myorder = () => {
     const [user] = useAuthState(auth);
-    const [orders ] = useOrder();
     const [deleteOrder, setDeleteOrder] = useState(null);
-    const result = orders.filter(order => order?.email === user?.email);
+    const email = user?.email;
+    const {data:orders, isLoading, refetch} = useQuery('order', ()=>fetch(`http://localhost:5000/myorders/${email}`,{
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then(res=>res.json()))
+    if(isLoading){
+      return <Loading></Loading>
+    }
 
-    console.log(result);
     return (
         <div class="overflow-x-auto">
         <table class="table w-full">
@@ -26,7 +35,7 @@ const Myorder = () => {
           </thead>
           <tbody>
            {
-               result.map((order, index )=> <OrderItem
+               orders?.map((order, index )=> <OrderItem
                key={order._id}
                order={order}
                index={index}
@@ -36,7 +45,7 @@ const Myorder = () => {
           </tbody>
         </table>
         {
-          deleteOrder && <DeletModal deleteOrder={deleteOrder} ></DeletModal>
+          deleteOrder && <DeletModal deleteOrder={deleteOrder} refetch={refetch} ></DeletModal>
         }
       </div>
     );

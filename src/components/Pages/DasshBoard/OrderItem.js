@@ -16,7 +16,7 @@ const itemUpdate = id =>{
       <td><img className="mask mask-mask-square w-12 h-12" src={img} alt={itemName}/></td>
       <td>{quantity}</td>
       <th >$ {price}</th>
-      <td><button className="btn btn-sm" onClick={()=>itemUpdate(_id)}>Pay Now</button> <label onClick={()=>setDeleteOrder(order)} for="delete-modal" class="btn modal-button btn-sm">Delete</label></td>
+      <td><button className="btn btn-sm" onClick={()=>itemUpdate(_id)}>Pay Now</button> <label onClick={()=>setDeleteOrder(order)} htmlFor="delete-modal" class="btn modal-button btn-sm">Delete</label></td>
     </tr>
   );
 };
