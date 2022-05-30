@@ -1,11 +1,16 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import auth from "../../../firebase.init";
+import useAdmin from "../../hook/useAdmin";
 import useProducts from "../../hook/useProducts";
 import Products from "./Products";
 
 const Accessories = () => {
+  const [user] = useAuthState(auth)
+  const [admin] = useAdmin(user)
   const [products] = useProducts()
-  const viewUpDateProducts = products.slice(-6);
+  const viewUpDateProducts = products.slice(-8);
   const naviget = useNavigate();
 
     const handleBuyNow = id => {
@@ -22,6 +27,7 @@ const Accessories = () => {
           key={product._id}
           product = { product}
           handleBuyNow ={handleBuyNow}
+          admin={admin}
           
           >
 

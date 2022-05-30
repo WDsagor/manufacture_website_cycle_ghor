@@ -6,7 +6,7 @@ const useOrder = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/Orders", {
+    fetch("https://morning-headland-71828.herokuapp.com/Orders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

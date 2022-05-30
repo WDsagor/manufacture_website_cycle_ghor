@@ -9,7 +9,7 @@ const useToken = user => {
         if(email){
             (async()=>{
 
-                const { data } = await axios.put(`http://localhost:5000/user/${email}`, currentUser);
+                const { data } = await axios.put(`https://morning-headland-71828.herokuapp.com/user/${email}`, currentUser);
                 const accessToken = data.accessToken;
                 localStorage.setItem('accessToken', accessToken);
                 setToken(accessToken);

@@ -11,7 +11,7 @@ const Myorder = () => {
     const [user] = useAuthState(auth);
     const [deleteOrder, setDeleteOrder] = useState(null);
     const email = user?.email;
-    const {data:orders, isLoading, refetch} = useQuery('order', ()=>fetch(`http://localhost:5000/myorders/${email}`,{
+    const {data:orders, isLoading, refetch} = useQuery('order', ()=>fetch(`https://morning-headland-71828.herokuapp.com/myorders/${email}`,{
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

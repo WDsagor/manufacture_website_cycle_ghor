@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const products = ({product, handleBuyNow }) => {
+const products = ({product, handleBuyNow ,admin}) => {
     
     const {_id, name, price, productImg, orderQuantity, details} = product;
     
@@ -20,7 +20,9 @@ const products = ({product, handleBuyNow }) => {
           <h2 className=" text-lg text-secondary">Minimum order {orderQuantity} pcs</h2>
           <div className="card-actions justify-between">
             <p className=" text-xl font-bold">Price $ { price}</p>
-            <button onClick={()=>handleBuyNow(_id)} className="btn btn-primary">Buy Now</button>
+            {!admin &&(
+              <button onClick={()=>handleBuyNow(_id)} className="btn btn-primary">Buy Now</button>
+            )}
           </div>
         </div>
       </div>

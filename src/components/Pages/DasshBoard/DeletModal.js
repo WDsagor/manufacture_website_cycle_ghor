@@ -7,7 +7,7 @@ const DeletModal = ({deleteOrder, refetch}) => {
 
     if(id){
       (async () => {
-        const { data } = await axios.delete(`http://localhost:5000/orders/${id}`);
+        const { data } = await axios.delete(`https://morning-headland-71828.herokuapp.com/orders/${id}`);
         
         if(!data.success) return toast.error(data.error, {
           position: toast.POSITION.TOP_CENTER

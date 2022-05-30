@@ -21,7 +21,7 @@ const naviget = useNavigate()
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    const url = `http://localhost:5000/products/${id}`;
+    const url = `https://morning-headland-71828.herokuapp.com/products/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -41,7 +41,7 @@ const naviget = useNavigate()
 
     };
   try {
-      const { data } = await axios.post(`http://localhost:5000/products/${id}`, order);
+      const { data } = await axios.post(`https://morning-headland-71828.herokuapp.com/products/${id}`, order);
 
       if (!data.success) {
         return toast.error(data.error, {
