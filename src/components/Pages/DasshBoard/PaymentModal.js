@@ -7,7 +7,8 @@ const stripePromise = loadStripe(
   "pk_test_51LC0INDhfggtVpiiDgZkVxQKtGTVlV8C6RuApP8NqdbkUFA7o7I9V3cuOEKqjnP8KKr3wYmUkWYlRwVK51vJgtUU004huLb8WS"
 );
 
-const PaymentModal = ({ payment, setPayment, refetch }) => {
+const PaymentModal = ({ payment, setPayment}) => {
+  
   return (
     <div>
       <input type="checkbox" id="payment-modal" className="modal-toggle" />
@@ -28,7 +29,7 @@ const PaymentModal = ({ payment, setPayment, refetch }) => {
           </p>
           <p className=" uppercase font-semibold pb-5">Amount <span className="text-primary text-xl">$ {payment?.price}</span></p>
           <Elements stripe={stripePromise} className="modal-action">
-            <CheckoutForm />
+            <CheckoutForm  payment={payment} setPayment={setPayment}/>
           </Elements>
           
           </div>

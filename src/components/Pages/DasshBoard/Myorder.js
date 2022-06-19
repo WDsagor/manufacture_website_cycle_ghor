@@ -26,6 +26,7 @@ const Myorder = () => {
     if(orders.length === 0){
       return <EmtyOrder></EmtyOrder>
     }
+    refetch();
 
     return (
         <div className="overflow-x-auto">
@@ -56,7 +57,7 @@ const Myorder = () => {
          
         }
         {
-           payment && <PaymentModal payment={payment}  setPayment ={setPayment} refetch={refetch}  ></PaymentModal>
+           payment && <PaymentModal payment={payment}  setPayment ={setPayment}   ></PaymentModal>
         }
       </div>
     );
