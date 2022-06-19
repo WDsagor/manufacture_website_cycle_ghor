@@ -5,11 +5,14 @@ import auth from '../../../firebase.init';
 import Loading from '../../share/Loading'
 
 import DeletModal from './DeletModal';
+import EmtyOrder from './EmtyOrder';
 import OrderItem from './OrderItem';
+import PaymentModal from './PaymentModal';
 
 const Myorder = () => {
     const [user] = useAuthState(auth);
     const [deleteOrder, setDeleteOrder] = useState(null);
+    const [payment, setPayment] = useState(null);
     const email = user?.email;
     const {data:orders, isLoading, refetch} = useQuery('order', ()=>fetch(`https://morning-headland-71828.herokuapp.com/myorders/${email}`,{
       method: "GET",
@@ -20,10 +23,13 @@ const Myorder = () => {
     if(isLoading){
       return <Loading></Loading>
     }
+    if(orders.length === 0){
+      return <EmtyOrder></EmtyOrder>
+    }
 
     return (
-        <div class="overflow-x-auto">
-        <table class="table w-full">
+        <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
               <th>Item Name</th>
@@ -40,12 +46,17 @@ const Myorder = () => {
                order={order}
                index={index}
                setDeleteOrder={setDeleteOrder}
+               setPayment ={setPayment}
                ></OrderItem>)
            }
           </tbody>
         </table>
         {
-          deleteOrder && <DeletModal deleteOrder={deleteOrder} refetch={refetch} ></DeletModal>
+          deleteOrder && <DeletModal deleteOrder={deleteOrder} setDeleteOrder={setDeleteOrder} refetch={refetch}  ></DeletModal>
+         
+        }
+        {
+           payment && <PaymentModal payment={payment}  setPayment ={setPayment} refetch={refetch}  ></PaymentModal>
         }
       </div>
     );

@@ -58,57 +58,57 @@ console.log(product);
   };
   return (
     <div className="mt-14">
-      <div class="card flex-shrink-0 w-96 shadow-2xl bg-base-100 mx-auto">
-        <div class="card-body">
+      <div className="card flex-shrink-0 w-96 shadow-2xl bg-base-100 mx-auto">
+        <div className="card-body">
           <h1 className="text-center text-2xl">Add Cycle Parse</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div class="form-control">
-              <label htmlFor="productName" class="label">
-                <span class="label-text">Product Name</span>
+            <div className="form-control">
+              <label htmlFor="productName" className="label">
+                <span className="label-text">Product Name</span>
               </label>
               <input
                 type="text"
                 id="productName"
-                class="input input-bordered"
+                className="input input-bordered"
                 {...register("name")}
               />
             </div>
-            <div class="form-control">
-              <label htmlFor="producQuantity" class="label">
-                <span class="label-text">Add Min order Quantity</span>
+            <div className="form-control">
+              <label htmlFor="producQuantity" className="label">
+                <span className="label-text">Add Min order Quantity</span>
               </label>
               <input
                 type="number"
                 id="productQuantity"
-                class="input input-bordered"
+                className="input input-bordered"
                 {...register("orderQuantity")}
               />
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Product price</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Product price</span>
               </label>
               <input
                 type="text"
-                class="input input-bordered"
+                className="input input-bordered"
                 {...register("price")}
               />
             </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Add product details</span>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Add product details</span>
               </label>
               <textarea
                 type="textarea"
-                class="textarea textarea-bordered h-24"
+                className="textarea textarea-bordered h-24"
                 {...register("details")}
               />
             </div>
-            <div class="form-control">
+            <div className="form-control">
               {
                   !imageURL? <label
                   htmlFor="image"
-                  class={
+                  className={
                     loading
                       ? "btn btn-primary loading mt-5"
                       : "btn btn-primary mt-5"
@@ -120,14 +120,14 @@ console.log(product);
               <input
                 type="file"
                 id="image"
-                class="input input-bordered hidden"
+                className="input input-bordered hidden"
                 onChange={handleUploadImage}
               />
             </div>
-            <div class="form-control mt-6 ">
+            <div className="form-control mt-6 ">
               <button
                 type="submit"
-                class="btn btn-primary"
+                className="btn btn-primary"
                 disabled={!imageURL ? true : false}
               >
                 Add Product

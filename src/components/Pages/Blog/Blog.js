@@ -3,12 +3,12 @@ import React from "react";
 const Blog = () => {
   return (
     <div className="mt-20 max-w-screen-md mx-auto px-5">
-      <div class="collapse collapse-plus border border-primary bg-base-100 rounded-box mb-2">
+      <div className="collapse collapse-plus border border-primary bg-base-100 rounded-box mb-2">
         <input type="checkbox" />
-        <div class="collapse-title text-xl font-medium">
+        <div className="collapse-title text-xl font-medium">
           How will you improve the performance of a React Application ?
         </div>
-        <div class="collapse-content">
+        <div className="collapse-content">
           <p className=" font-bold">Answer :</p>
           <ul>
             <li>Code-splitting in React using dynamic import()</li>
@@ -21,12 +21,12 @@ const Blog = () => {
           </ul>
         </div>
       </div>
-      <div class="collapse collapse-plus border border-primary bg-base-100 rounded-box mb-2">
+      <div className="collapse collapse-plus border border-primary bg-base-100 rounded-box mb-2">
         <input type="checkbox" />
-        <div class="collapse-title text-xl font-medium">
+        <div className="collapse-title text-xl font-medium">
           What are the different ways to manage a state in a React application?
         </div>
-        <div class="collapse-content">
+        <div className="collapse-content">
           <p className=" font-bold">Answer :</p>
           <ol className=" pl-2 list-disc">
             <li>Global state.</li>
@@ -36,12 +36,12 @@ const Blog = () => {
           </ol>
         </div>
       </div>
-      <div class="collapse collapse-plus border border-primary bg-base-100 rounded-box mb-2">
+      <div className="collapse collapse-plus border border-primary bg-base-100 rounded-box mb-2">
         <input type="checkbox" />
-        <div class="collapse-title text-xl font-medium">
+        <div className="collapse-title text-xl font-medium">
           How does prototypical inheritance work ?
         </div>
-        <div class="collapse-content">
+        <div className="collapse-content">
           <p className=" font-bold">Answer :</p>
           <p>
             JavaScript is a prototype-based, Object Oriented programming
@@ -58,12 +58,12 @@ const Blog = () => {
           </p>
         </div>
       </div>
-      <div class="collapse collapse-plus border border-primary bg-base-100 rounded-box mb-2">
+      <div className="collapse collapse-plus border border-primary bg-base-100 rounded-box mb-2">
         <input type="checkbox" />
-        <div class="collapse-title text-xl font-medium">
+        <div className="collapse-title text-xl font-medium">
           What is a unit test? Why should write unit tests?
         </div>
-        <div class="collapse-content">
+        <div className="collapse-content">
           <p className=" font-bold">What is a unit test?</p>
           <p className=" font-bold">Answer :</p>
           <p>
@@ -80,14 +80,14 @@ const Blog = () => {
           </p>
         </div>
       </div>
-      <div class="collapse collapse-plus border border-primary bg-base-100 rounded-box mb-2">
+      <div className="collapse collapse-plus border border-primary bg-base-100 rounded-box mb-2">
         <input type="checkbox" />
-        <div class="collapse-title text-lg font-medium">
+        <div className="collapse-title text-lg font-medium">
           You have an array of products. Each product has a name, price,
           description, etc. How will you implement a search to find products by
           name?
         </div>
-        <div class="collapse-content">
+        <div className="collapse-content">
           <p className=" font-bold">Answer :</p>
           <p>
             const products = [name, price, etc...]; <br /> const found =

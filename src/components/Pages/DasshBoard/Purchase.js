@@ -65,9 +65,9 @@ const naviget = useNavigate()
   };
 
   return (
-    <div class="hero min-h-screen bg-base-200">
-      <div class="hero-content flex-col lg:flex-row ">
-        <img src={productImg} class="max-w-md rounded-lg shadow-2xl mt-14" alt="" />
+    <div className="hero min-h-screen bg-base-200">
+      <div className="hero-content flex-col lg:flex-row ">
+        <img src={productImg} className="max-w-md rounded-lg shadow-2xl mt-14" alt="" />
         <div className="flex h-screen justify-center items-center">
           <div className="card w-96 ">
             <div className="card-body">

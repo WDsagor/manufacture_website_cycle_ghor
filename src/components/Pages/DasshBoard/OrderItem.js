@@ -1,22 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-
-const OrderItem = ({order , setDeleteOrder }) => {
-  const {_id,itemName, quantity, img, price}= order
-  const naviget = useNavigate()
 
 
-const itemUpdate = id =>{
-  naviget(`/payment/${id}`)
+const OrderItem = ({order , setDeleteOrder, setPayment }) => {
+  const { itemName, quantity, img, price}= order
 
-} 
+
+
   return (
     <tr>
       <th>{itemName}</th>
       <td><img className="mask mask-mask-square w-12 h-12" src={img} alt={itemName}/></td>
       <td>{quantity}</td>
       <th >$ {price}</th>
-      <td><button className="btn btn-sm" onClick={()=>itemUpdate(_id)}>Pay Now</button> <label onClick={()=>setDeleteOrder(order)} htmlFor="delete-modal" class="btn modal-button btn-sm">Delete</label></td>
+      <td><label className="btn modal-button btn-sm" onClick={()=>setPayment(order)} htmlFor="payment-modal">Pay Now</label> <label onClick={()=>setDeleteOrder(order)} htmlFor="delete-modal" className="btn modal-button btn-sm">Delete</label></td>
     </tr>
   );
 };

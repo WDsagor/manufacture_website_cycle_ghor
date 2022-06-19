@@ -15,8 +15,13 @@ import Purchase from "./components/Pages/DasshBoard/Purchase";
 import ManageProducts from "./components/Pages/DasshBoard/ManageProducts";
 import ManageOrder from "./components/Pages/DasshBoard/ManageOrder";
 import Review from "./components/Pages/DasshBoard/Review";
+import { useAuthState } from "react-firebase-hooks/auth";
+import useAdmin from "./components/hook/useAdmin";
+import auth from "./firebase.init";
 
 function App() {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
     <>
       <ToastContainer/>
@@ -30,10 +35,10 @@ function App() {
         <Route path="/profile" element={<RequireAuth><MyProfile /></RequireAuth>}></Route >
           <Route path='/products/:id' element={<RequireAuth><Purchase></Purchase></RequireAuth>} />
         <Route path='/dashboard' element={<RequireAuth><DasshBoard /></RequireAuth>}>
+         {admin? <Route index element={<RequireAdmin><AddItem /></RequireAdmin>} />  :<Route index element={<Myorder/>} />}
           <Route path='my-review' element={<Review></Review>} />
-          <Route index element={<Myorder/>} />
           {/* admin route */}
-          <Route path='add-item' element={<RequireAdmin><AddItem /></RequireAdmin>} />
+          
           <Route path='all-user' element={<RequireAdmin><AllUser /></RequireAdmin>} />
           <Route path='Manage-Products' element={<RequireAdmin><ManageProducts /></RequireAdmin>} />
           <Route path='manage-order' element={<RequireAdmin><ManageOrder /></RequireAdmin>} />

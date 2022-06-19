@@ -31,7 +31,7 @@ const Accessories = () => {
           
           >
 
-          </Products>)
+          </Products>).reverse()
         }
       </div>
     </div>
