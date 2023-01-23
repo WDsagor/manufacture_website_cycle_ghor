@@ -108,7 +108,7 @@ const CheckoutForm = ({ payment, setPayment }) => {
     if (transactionId) {
       setPayment(null);
     }
-  }, []);
+  }, [transactionId, setPayment]);
 
   return (
     <form onSubmit={handleSubmit}>
