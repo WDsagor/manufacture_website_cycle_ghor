@@ -9,19 +9,19 @@ import { toast } from "react-toastify";
 
 const Purchase = () => {
   const [updateProduct, setUpdateProduct] = useState({});
-  const {name, productImg, details, orderQuantity, price} = updateProduct;
+  const { name, productImg, details, orderQuantity, price } = updateProduct;
   const { id } = useParams();
-const naviget = useNavigate()
+  const naviget = useNavigate();
   const {
     register,
     formState: { errors },
     handleSubmit,
-    reset
+    reset,
   } = useForm();
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    const url = `https://morning-headland-71828.herokuapp.com/products/${id}`;
+    const url = `https://manufacture-website-cycle-ghor-server.vercel.app/products/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -31,43 +31,46 @@ const naviget = useNavigate()
 
   const onSubmit = async (data) => {
     const order = {
-        itemName: name,
-        name:user.displayName,
-        phone:data.phoneNumber,
-        quantity: data.quantity,
-        email: user?.email,
-        img: productImg,
-        price:price
-
+      itemName: name,
+      name: user.displayName,
+      phone: data.phoneNumber,
+      quantity: data.quantity,
+      email: user?.email,
+      img: productImg,
+      price: price,
     };
-  try {
-      const { data } = await axios.post(`https://morning-headland-71828.herokuapp.com/products/${id}`, order);
+    try {
+      const { data } = await axios.post(
+        `https://manufacture-website-cycle-ghor-server.vercel.app/products/${id}`,
+        order
+      );
 
       if (!data.success) {
         return toast.error(data.error, {
-          position: toast.POSITION.TOP_CENTER
-        }
-          );
+          position: toast.POSITION.TOP_CENTER,
+        });
       }
 
       toast.success(data.message, {
-        position: toast.POSITION.TOP_CENTER
+        position: toast.POSITION.TOP_CENTER,
       });
       reset();
-      naviget("/")
-
+      naviget("/");
     } catch (error) {
       toast.error(error.message, {
-        position: toast.POSITION.TOP_CENTER
-      })
-    };
-
+        position: toast.POSITION.TOP_CENTER,
+      });
+    }
   };
 
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row ">
-        <img src={productImg} className="max-w-md rounded-lg shadow-2xl mt-14" alt="" />
+        <img
+          src={productImg}
+          className="max-w-md rounded-lg shadow-2xl mt-14"
+          alt=""
+        />
         <div className="flex h-screen justify-center items-center">
           <div className="card w-96 ">
             <div className="card-body">
@@ -76,7 +79,10 @@ const naviget = useNavigate()
               </h2>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-control w-full max-w-xs">
-                  <span className="label-text text-xl uppercase">Product name <span className=" text-secondary font-bold">{name}</span></span>
+                  <span className="label-text text-xl uppercase">
+                    Product name{" "}
+                    <span className=" text-secondary font-bold">{name}</span>
+                  </span>
                   <span className="label-text">{details}</span>
                   <span className="label-text text-xl">Price $ {price}</span>
                 </div>

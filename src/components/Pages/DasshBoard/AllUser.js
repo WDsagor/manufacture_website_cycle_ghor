@@ -4,31 +4,40 @@ import { toast } from "react-toastify";
 import Loading from "../../share/Loading";
 
 const AllUser = () => {
-  const { data: users, isLoading, refetch } = useQuery("allUsers", () =>
-    fetch("https://morning-headland-71828.herokuapp.com/users",{
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        }}).then((res) => res.json())
+  const {
+    data: users,
+    isLoading,
+    refetch,
+  } = useQuery("allUsers", () =>
+    fetch("https://manufacture-website-cycle-ghor-server.vercel.app/users", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
   );
   if (isLoading) {
     return <Loading></Loading>;
   }
-  const makeAdmin = (email) =>{
-    fetch(`https://morning-headland-71828.herokuapp.com/user/admin/${email}`,{
+  const makeAdmin = (email) => {
+    fetch(
+      `https://manufacture-website-cycle-ghor-server.vercel.app/user/admin/${email}`,
+      {
         method: "PUT",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        }}).then((res) => res.json())
-        .then(data =>{
-           return toast.success('Admin Success', {
-                position: toast.POSITION.TOP_CENTER
-                
-              })
-            })
-            
-            refetch()
-  }
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        return toast.success("Admin Success", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      });
+
+    refetch();
+  };
   return (
     <div className="overflow-x-auto">
       <table className="table w-full">
@@ -44,7 +53,18 @@ const AllUser = () => {
             <tr key={index}>
               <th>{index + 1}</th>
               <td>{user.email}</td>
-              <td>{user.role ==="admin" ?<span className=" text-success font-bold">Now admin</span>:<batton onClick={()=>makeAdmin(user.email)} className="btn btn-xs btn-primary">Make admin</batton>}<batton className="btn btn-xs ml-2 btn-error">X</batton></td>
+              <td>
+                {user.role === "admin" ? (
+                  <span className=" text-success font-bold">Now admin</span>
+                ) : (
+                  <batton
+                    onClick={() => makeAdmin(user.email)}
+                    className="btn btn-xs btn-primary">
+                    Make admin
+                  </batton>
+                )}
+                <batton className="btn btn-xs ml-2 btn-error">X</batton>
+              </td>
             </tr>
           ))}
         </tbody>

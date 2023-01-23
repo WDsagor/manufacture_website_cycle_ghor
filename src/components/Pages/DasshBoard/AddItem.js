@@ -14,19 +14,21 @@ const AddItem = () => {
       ...data,
       productImg: imageURL,
     };
-console.log(product);
-    const res = await axios.post("https://morning-headland-71828.herokuapp.com/add-product", product);
+    console.log(product);
+    const res = await axios.post(
+      "https://manufacture-website-cycle-ghor-server.vercel.app/add-product",
+      product
+    );
     if (!res.success) {
-        return toast.error(res.data.error, {
-          position: toast.POSITION.TOP_CENTER
-        }
-          );
-      }
-
-      toast.success(res.data.message, {
-        position: toast.POSITION.TOP_CENTER
+      return toast.error(res.data.error, {
+        position: toast.POSITION.TOP_CENTER,
       });
-      reset();
+    }
+
+    toast.success(res.data.message, {
+      position: toast.POSITION.TOP_CENTER,
+    });
+    reset();
     setImageURL("");
   };
 
@@ -40,21 +42,19 @@ console.log(product);
 
     axios
       .post(
-        'https://api.imgbb.com/1/upload?key=f9806104e1084bb2549ae1bb88a4bff8',
+        "https://api.imgbb.com/1/upload?key=f9806104e1084bb2549ae1bb88a4bff8",
         formData
       )
       .then((res) => {
         setImageURL(res.data.data.display_url);
-        if(res.data.data.display_url){
-            toast.success('Image Upload success', {
-                position: toast.POSITION.TOP_CENTER,
-              });
+        if (res.data.data.display_url) {
+          toast.success("Image Upload success", {
+            position: toast.POSITION.TOP_CENTER,
+          });
         }
         setLoading(false);
       })
-      .catch((error) => {
-       
-      });
+      .catch((error) => {});
   };
   return (
     <div className="mt-14">
@@ -105,18 +105,22 @@ console.log(product);
               />
             </div>
             <div className="form-control">
-              {
-                  !imageURL? <label
+              {!imageURL ? (
+                <label
                   htmlFor="image"
                   className={
                     loading
                       ? "btn btn-primary loading mt-5"
                       : "btn btn-primary mt-5"
-                  }
-                >
+                  }>
                   Upload Image
-                </label> : <div className=" w-24 rounded-xl mx-auto pt-5"> <img src = {imageURL} alt=""/></div>
-              }
+                </label>
+              ) : (
+                <div className=" w-24 rounded-xl mx-auto pt-5">
+                  {" "}
+                  <img src={imageURL} alt="" />
+                </div>
+              )}
               <input
                 type="file"
                 id="image"
@@ -128,8 +132,7 @@ console.log(product);
               <button
                 type="submit"
                 className="btn btn-primary"
-                disabled={!imageURL ? true : false}
-              >
+                disabled={!imageURL ? true : false}>
                 Add Product
               </button>
             </div>

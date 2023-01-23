@@ -6,7 +6,7 @@ const useOrder = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch("https://morning-headland-71828.herokuapp.com/Orders", {
+    fetch("https://manufacture-website-cycle-ghor-server.vercel.app/Orders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

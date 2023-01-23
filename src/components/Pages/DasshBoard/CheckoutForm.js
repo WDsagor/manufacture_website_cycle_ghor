@@ -15,14 +15,17 @@ const CheckoutForm = ({ payment, setPayment }) => {
   const { _id, price, itemName, email } = payment;
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify({ price }),
-    })
+    fetch(
+      "https://manufacture-website-cycle-ghor-server.vercel.app/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify({ price }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {
@@ -31,8 +34,6 @@ const CheckoutForm = ({ payment, setPayment }) => {
       });
   }, [price]);
 
- 
-  
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -84,14 +85,17 @@ const CheckoutForm = ({ payment, setPayment }) => {
         transactionId: paymentIntent.id,
       };
       console.log(_id);
-      fetch(`http://localhost:5000/products/${_id}`, {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify(payment),
-      })
+      fetch(
+        `https://manufacture-website-cycle-ghor-server.vercel.app/products/${_id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify(payment),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setProcessing(false);
@@ -99,14 +103,12 @@ const CheckoutForm = ({ payment, setPayment }) => {
         });
     }
     console.log(paymentMethod);
-    
-  
   };
- useEffect(()=>{
-  if(transactionId){
-    setPayment(null)
-   }
- },[]);
+  useEffect(() => {
+    if (transactionId) {
+      setPayment(null);
+    }
+  }, []);
 
   return (
     <form onSubmit={handleSubmit}>
