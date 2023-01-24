@@ -50,14 +50,15 @@ const Myorder = () => {
           </tr>
         </thead>
         <tbody>
-          {orders?.map((order, index) => (
-            <OrderItem
-              key={order._id}
-              order={order}
-              index={index}
-              setDeleteOrder={setDeleteOrder}
-              setPayment={setPayment}></OrderItem>
-          ))}
+          {orders &&
+            orders?.map((order, index) => (
+              <OrderItem
+                key={index}
+                order={order}
+                index={index}
+                setDeleteOrder={setDeleteOrder}
+                setPayment={setPayment}></OrderItem>
+            ))}
         </tbody>
       </table>
       {deleteOrder && (

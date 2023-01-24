@@ -23,7 +23,7 @@ const SignUp = () => {
     useCreateUserWithEmailAndPassword(auth);
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-  const [token] = useToken(user || gUser)
+  const [token] = useToken(user || gUser);
   const navigate = useNavigate();
   useEffect(() => {
     if (token) {
@@ -37,12 +37,11 @@ const SignUp = () => {
         position: toast.POSITION.TOP_CENTER,
       });
     }
-  }, [navigate, token]);
+  }, [navigate, token, gError, updateError, error]);
 
   if (loading || gLoading || updating) {
     return <Loading></Loading>;
   }
-
 
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
@@ -162,8 +161,7 @@ const SignUp = () => {
           <div className="divider">OR</div>
           <button
             onClick={() => signInWithGoogle()}
-            className="btn btn-outline btn-primary"
-          >
+            className="btn btn-outline btn-primary">
             Continue with Google
           </button>
         </div>
