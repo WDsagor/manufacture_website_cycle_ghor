@@ -32,7 +32,7 @@ const Myorder = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
-  if (orders.length === 0) {
+  if (orders?.length === 0) {
     return <EmtyOrder></EmtyOrder>;
   }
   refetch();
