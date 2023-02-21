@@ -20,7 +20,7 @@ const DashboardItem = ({ children }) => {
       <div className="drawer-side z-10 ">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 overflow-y-auto w-52 bg-success text-base-content fixed h-screen uppercase">
-          {admin && (
+          {admin ?(
             <>
               <li>
                 <NavLink className="mt-2" to="/dashboard/">
@@ -38,8 +38,7 @@ const DashboardItem = ({ children }) => {
                 </NavLink>
               </li>
             </>
-          )}
-          {!admin && (
+          ):(
             <>
               <li>
                 <NavLink className="mt-2" to="/dashboard/">
